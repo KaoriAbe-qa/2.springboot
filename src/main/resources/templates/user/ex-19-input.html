@@ -6,9 +6,15 @@
 </head>
 <body>
 <form action=""
-	th:action="/ex19/create" method="post">
-	<input type="text" name="num1">+
-	<input type="text" name="num2">=<br>
+	th:action="@{/ex19/create}" 
+	th:object="${ex19Form}" method="post">
+	
+	<div th:errors="*{num1}" style="color:crimson">エラー！</div>
+	<input type="text" name="num1" th:field="*{num1}">+
+	
+	<div th:errors="*{num2}" style="color:crimson">エラー！</div>
+	<input type="text" name="num2" th:field="*{num2}">=<br>
+	
 	<button>計算</button>
 </form>
 </body>
